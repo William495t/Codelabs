@@ -97,4 +97,49 @@ Escenarios mal definidos: mejorar colaboración con stakeholders
 
 Dificultad para documentar decisiones: usar plantillas y herramientas de apoyo
 _____________________________________________________________________________________________________________________________________________________________________________
+# CODELAB: Clean Architecture
+
+1. **¿Qué problema busca resolver Clean Architecture en el desarrollo de software?**
+   Busca desacoplar la lógica de negocio del resto del sistema (frameworks, UI, BD), facilitando cambios, pruebas y mantenimiento.
+
+2. **¿Cuáles son las principales capas de Clean Architecture y qué responsabilidad tiene cada una?**
+
+   * **Entidad (Domain)**: contiene lógica de negocio pura.
+   * **Casos de Uso (Application)**: orquesta reglas del negocio según acciones del sistema.
+   * **Interfaz (Interface Adapters)**: adapta datos entre capas internas y externas (controllers, presenters).
+   * **Infraestructura (Frameworks & Drivers)**: incluye frameworks, bases de datos, servicios externos.
+
+3. **¿Qué relación tiene Clean Architecture con el principio de Inversión de Dependencias (DIP) en SOLID?**
+   Se basa en DIP: las capas de alto nivel (dominio) no dependen de las de bajo nivel (infraestructura); la dependencia es invertida mediante interfaces.
+
+4. **¿Por qué es importante desacoplar la lógica de negocio de la infraestructura en una aplicación?**
+   Porque permite cambiar tecnologías (como la base de datos) sin afectar la lógica central, y mejora la capacidad de prueba y mantenimiento.
+
+5. **¿Cómo Clean Architecture facilita la escalabilidad y mantenibilidad de un sistema?**
+   Al separar responsabilidades, permite escalar partes del sistema sin afectar otras, facilita pruebas unitarias y localiza errores más rápido.
+
+6. **¿Qué diferencia hay entre la capa de dominio y la capa de aplicación en Clean Architecture?**
+
+   * **Dominio**: contiene las **reglas de negocio puras** (entidades, lógica central).
+   * **Aplicación**: contiene la **lógica específica de casos de uso**, que usa entidades y coordina acciones.
+
+7. **¿Por qué los controladores (controllers) y la base de datos deben estar en la capa de infraestructura?**
+   Porque son detalles técnicos que pueden cambiar. Se mantienen fuera del núcleo para que el dominio permanezca independiente.
+
+8. **¿Qué ventajas tiene usar una interfaz en la capa de dominio para definir repositorios en lugar de usar directamente JpaRepository?**
+
+   * Desacopla del framework (Spring Data)
+   * Facilita pruebas con mocks
+   * Mantiene la lógica del dominio limpia e independiente
+
+9. **¿Cómo interactúan los casos de uso (UseCases) con las entidades de dominio en Clean Architecture?**
+   Los casos de uso orquestan entidades para ejecutar operaciones del sistema. Usan interfaces para acceder a datos y servicios sin acoplarse a la implementación.
+
+10. **¿Cómo se puede aplicar Clean Architecture en una aplicación de microservicios con Spring Boot?**
+
+* Cada microservicio implementa su Clean Architecture de forma independiente.
+* Spring Boot se usa en la capa de infraestructura.
+* Los `@Service` manejan casos de uso, los `@RestController` están en interfaz, y la lógica de negocio vive en el dominio.
+
+
 
