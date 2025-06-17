@@ -372,7 +372,6 @@ Como una clase en la capa de aplicación, inyectando interfaces del dominio. Ven
 **10. ¿Cómo Clean Architecture facilita la escalabilidad y mantenibilidad en un entorno basado en microservicios?**
 Permite modificar, extender o escalar servicios de forma independiente gracias a su estructura modular y separación clara de responsabilidades.
 _____________________________________________________________________________________________________________________________________________________________________________
-# CODELAB: Comunicación entre microservicios: Sincrónica y Asincrónica con Spring Boot
 
 
 
